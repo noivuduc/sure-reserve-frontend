@@ -47,8 +47,7 @@ export default {
     'vue-sweetalert2/nuxt'
   ],
   axios: {
-    host: 'sure-reserve.herokuapp.com',
-    https: true
+    baseURL: 'https://sure-reserve.herokuapp.com'
   },
   /*
   ** vuetify module configuration
