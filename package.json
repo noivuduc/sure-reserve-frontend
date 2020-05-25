@@ -1,0 +1,24 @@
+{
+  "name": "sure-reserve-frontend",
+  "version": "1.0.0",
+  "description": "My rad Nuxt.js project",
+  "author": "Noi",
+  "private": true,
+  "scripts": {
+    "dev": "nuxt",
+    "build": "nuxt build",
+    "start": "nuxt start",
+    "generate": "nuxt generate"
+  },
+  "dependencies": {
+    "@nuxtjs/axios": "^5.10.3",
+    "moment": "^2.26.0",
+    "nuxt": "^2.0.0",
+    "sweetalert2": "^9.13.1",
+    "vue-loading-overlay": "^3.3.2",
+    "vue-sweetalert2": "^3.0.5"
+  },
+  "devDependencies": {
+    "@nuxtjs/vuetify": "^1.0.0"
+  }
+}
