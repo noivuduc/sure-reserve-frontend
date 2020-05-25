@@ -48,8 +48,7 @@ export default {
   ],
   axios: {
     host: 'sure-reserve.herokuapp.com',
-    https: true,
-    port: 80
+    https: true
   },
   /*
   ** vuetify module configuration
