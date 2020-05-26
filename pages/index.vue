@@ -33,7 +33,7 @@
       <v-stepper-content step="2">
         <v-card class="mb-12" elevation="0">
           <v-row>
-            <v-col v-for="(carPark, index) in carParks" :key="index" cols="6" md="4" lg="3" sm="6">
+            <v-col v-for="(carPark, index) in carParks" :key="index" cols="12" md="4" lg="4" sm="12">
               <v-hover v-slot:default="{ hover }">
                 <v-card
                   :color="selectedCarPark && selectedCarPark._id === carPark._id ? '#00b0ff' : '#1F7087'"
@@ -62,7 +62,7 @@
       <v-stepper-content step="3">
         <v-card class="mb-12" elevation="0" v-if="selectedCarPark && !recommended">
           <v-row align="center" justify="center">
-            <v-col cols="8">
+            <v-col cols="12" md="8" lg="6" sm="12">
               <v-card class="mx-auto my-12" max-width="450">
                 <v-img height="250" :src="selectedCarPark.image"></v-img>
 
@@ -93,7 +93,7 @@
         <v-card class="mb-12" elevation="0" v-if="recommended && recommended.length > 0">
           <v-card-title>Suggestion parking slot for requested time: {{ startTime }}</v-card-title>
           <v-row align="center" justify="center">
-            <v-col cols="4" v-for="(recommend, index) in recommended" :key="index">
+            <v-col cols="12" md="4" lg="4" sm="12" v-for="(recommend, index) in recommended" :key="index">
               <v-card class="mx-auto my-12" max-width="450">
                 <v-img height="250" :src="recommend.foundCarPark.image"></v-img>
 
