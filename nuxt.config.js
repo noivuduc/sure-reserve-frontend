@@ -48,6 +48,7 @@ export default {
   ],
   axios: {
     baseURL: 'https://sure-reserve.herokuapp.com'
+    // baseURL: 'http://localhost:3001'
   },
   /*
   ** vuetify module configuration

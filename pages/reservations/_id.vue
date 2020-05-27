@@ -39,10 +39,10 @@ export default {
     };
   },
   mounted() {
-    const params = this.$route.params
-    console.log(params)
-    const resultId = params.id
-    this.getReservation(resultId)
+    const params = this.$route.params;
+    console.log(params);
+    const resultId = params.id;
+    this.getReservation(resultId);
   },
   methods: {
     async getReservation(id) {
@@ -50,9 +50,9 @@ export default {
       if (resp.status == 200) {
         this.loaded = true;
         const data = resp.data;
-        this.reservation = data.reservation;
-        this.carPark = data.carPark;
-        this.parkingLot = data.parkingLot;
+        this.reservation = data;
+        this.parkingLot = data.parkingLotId;
+        this.carPark = this.parkingLot.carParkId;
       }
     }
   }
