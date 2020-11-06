@@ -1,13 +1,39 @@
-on: pull_request
-name: Main Workflow
+name: Analyze pull request
+
+on:
+  pull_request:
+    types: [opened, edited, reopened, synchronize]
+    branches:
+      - master
+      - 'JAHIA-[0-9]-[0-9]-[0-9]-X-BRANCH'
+      - '[0-9]_[0-9]_x'
+      - '[0-9]-[0-9]-X-BRANCH'
+
 jobs:
-  sonarQubeTrigger:
-    name: SonarQube Trigger
+  build:
+
     runs-on: ubuntu-latest
+
     steps:
-    - uses: actions/checkout@master
-    - name: SonarQube Scan
-      uses: kitabisa/sonarqube-action@master
-      with:
-        host: http://13.212.161.15
-        login: 0503fbbd5e0e09aba454b1b90d6649c8bbc489c8
+      - name: Setup sonarqube
+        uses: warchant/setup-sonar-scanner@v1
+
+      - name: 'Checkout repository on branch: ${{ github.REF }}'
+        uses: actions/checkout@v2
+        with:
+          ref: ${{ github.HEAD_REF }}
+
+      - name: Retrieve entire repository history
+        run: |
+          git fetch --prune --unshallow
+      - name: Run an analysis of the PR
+        run: sonar-scanner
+          -Dsonar.host.url=http://13.212.161.15
+          -Dsonar.login=c0339772754e482a70c634506b91fecec1d598c9
+          -Dsonar.projectKey=khautrang
+          -Dsonar.pullrequest.key=${{ github.event.number }}
+          -Dsonar.pullrequest.branch=${{ github.HEAD_REF }}
+          -Dsonar.pullrequest.base=${{ github.BASE_REF }}
+          -Dsonar.pullrequest.github.repository=${{ github.repository }}
+          -Dsonar.scm.provider=git
+          -Dsonar.java.binaries=/tmp
