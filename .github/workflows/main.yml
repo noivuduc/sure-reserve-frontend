@@ -1,0 +1,13 @@
+on: pull_request
+name: Main Workflow
+jobs:
+  sonarQubeTrigger:
+    name: SonarQube Trigger
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@master
+    - name: SonarQube Scan
+      uses: kitabisa/sonarqube-action@master
+      with:
+        host: http://13.212.161.15
+        login: 0503fbbd5e0e09aba454b1b90d6649c8bbc489c8
