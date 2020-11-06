@@ -31,9 +31,6 @@ jobs:
           -Dsonar.host.url=http://13.212.161.15
           -Dsonar.login=c0339772754e482a70c634506b91fecec1d598c9
           -Dsonar.projectKey=khautrang
-          -Dsonar.pullrequest.key=${{ github.event.number }}
-          -Dsonar.pullrequest.branch=${{ github.HEAD_REF }}
-          -Dsonar.pullrequest.base=${{ github.BASE_REF }}
           -Dsonar.pullrequest.github.repository=${{ github.repository }}
           -Dsonar.scm.provider=git
           -Dsonar.java.binaries=/tmp
